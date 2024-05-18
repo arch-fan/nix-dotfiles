@@ -7,12 +7,14 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:
-    let 
-      mkConfig = hostName: system: home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
+    let
+      pkgs = system: import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      mkHomeConfig = hostName: system: home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs system;
         
         modules = [
           ./hosts/${hostName}
@@ -20,7 +22,7 @@
       };
     in {
     homeConfigurations = {
-      wsl = mkConfig "wsl" "x86_64-linux";
+      wsl = mkHomeConfig "wsl" "x86_64-linux";
     };
   };
 }
