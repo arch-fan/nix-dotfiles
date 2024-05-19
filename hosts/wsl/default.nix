@@ -18,6 +18,7 @@
     nodePackages.pnpm
     neovim
     bun
+    lsd
   ];
 }
  

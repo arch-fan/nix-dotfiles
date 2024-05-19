@@ -3,26 +3,28 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    nur.url = "github:nix-community/NUR";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
-      pkgs = system: import nixpkgs {
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-
-      mkHomeConfig = hostName: system: home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs system;
-        
+    in {
+      nixosConfigurations.gnome-desktop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = inputs;
         modules = [
-          ./hosts/${hostName}
+          ./hosts/gnome-desktop/configuration.nix
         ];
       };
-    in {
-    homeConfigurations = {
-      wsl = mkHomeConfig "wsl" "x86_64-linux";
-    };
   };
 }
