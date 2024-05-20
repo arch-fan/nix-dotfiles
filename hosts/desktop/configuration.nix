@@ -11,8 +11,6 @@
       home-manager.nixosModules.default
     ];
 
-  programs.zsh.enable = true;
-
   # Video Drivers
   hardware.opengl = {
     enable = true;
@@ -66,8 +64,6 @@
   home-manager.users = {
     juan = import ./home.nix;
   };
-
-  users.defaultUserShell = pkgs.zsh;
 
   users.users.juan = {
     isNormalUser = true;
