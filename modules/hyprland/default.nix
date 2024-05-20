@@ -1,18 +1,22 @@
 { ... }:
 
 {
+    programs.alacritty.enable = true;
     programs.wofi.enable = true;
     programs.waybar.enable = true;
 
     wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
-        enableNvidiaPatches = true;
 
         settings = {
+            monitor= ",preferred,auto,auto";
             MOD = "SUPER";
             exec-once = "waybar &";
-            bind = "MOD, SPACE, wofi";
+            bind = [
+                "MOD,SPACE,exec,wofi"
+                "MOD,BACKSPACE,exec,alacritty"
+            ];
         };
     };
 }
