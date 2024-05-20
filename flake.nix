@@ -19,11 +19,11 @@
         config.allowUnfree = true;
       };
     in {
-      nixosConfigurations.gnome-desktop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = inputs;
         modules = [
-          ./hosts/gnome-desktop/configuration.nix
+          ./hosts/desktop/configuration.nix
         ];
       };
   };
