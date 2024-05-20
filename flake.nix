@@ -15,7 +15,7 @@
     let
       mkSystem = name: system: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = inputs;
+        specialArgs = inputs // { inherit system; };
         modules = [
           ./hosts/${name}/configuration.nix
         ];
