@@ -5,36 +5,8 @@
 }: {
   # programs.hyprlock.enable = true;
   programs.alacritty.enable = true;
-  programs.fuzzel = {
-    enable = true;
 
-    settings = {
-      font = "Dank Mono:weight=bold:size=12";
-      line-height = 18;
-      fields = "name,generic,comment,categories,filename,keywords";
-      terminal = "foot -e";
-      prompt = "❯   ";
-      layer = "overlay";
-      lines = 10;
-
-      colors = {
-        background = "1e1e2eaa";
-        text = "cdd6f4ff";
-        match = "f38ba8ff";
-        selection = "585b70ff";
-        selection-match = "f38ba8ff";
-        selection-text = "cdd6f4ff";
-        border = "b4befeff";
-      };
-
-      border = {
-        radius = 20;
-        width = 3;
-      };
-    };
-  };
-  /*
-     programs.wofi = {
+  programs.wofi = {
     enable = true;
 
     settings = {
@@ -103,7 +75,6 @@
       }
     '';
   };
-  */
 
   programs.waybar = {
     enable = true;
@@ -217,6 +188,7 @@
         background-color: #1e1e2e;
         padding: 0px 10px;
         margin: 10px;
+        border-radius: 10px;
       }
 
       #cpu {
@@ -224,6 +196,7 @@
         background-color: #1e1e2e;
         padding: 0px 10px;
         margin: 10px;
+        border-radius: 10px;
       }
 
       #clock.date {
@@ -311,7 +284,7 @@
 
       bind = lib.concatLists [
         [
-          "SUPER,Space,exec,fuzzel"
+          "SUPER,Space,exec,wofi --show run"
           "$MOD,Return,exec,alacritty"
           "$MOD,q,killactive"
           "$MOD,f,fullscreen,0"
