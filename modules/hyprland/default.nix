@@ -5,7 +5,106 @@
 }: {
   # programs.hyprlock.enable = true;
   programs.alacritty.enable = true;
-  programs.wofi.enable = true;
+  programs.fuzzel = {
+    enable = true;
+
+    settings = {
+      font = "Dank Mono:weight=bold:size=12";
+      line-height = 18;
+      fields = "name,generic,comment,categories,filename,keywords";
+      terminal = "foot -e";
+      prompt = "❯   ";
+      layer = "overlay";
+      lines = 10;
+
+      colors = {
+        background = "1e1e2eaa";
+        text = "cdd6f4ff";
+        match = "f38ba8ff";
+        selection = "585b70ff";
+        selection-match = "f38ba8ff";
+        selection-text = "cdd6f4ff";
+        border = "b4befeff";
+      };
+
+      border = {
+        radius = 20;
+        width = 3;
+      };
+    };
+  };
+  /*
+     programs.wofi = {
+    enable = true;
+
+    settings = {
+      hide_scroll = true;
+      show = "drun";
+      width = "30%";
+      lines = 8;
+      line_wrap = "word";
+      term = "bash";
+      allow_markup = true;
+      always_parse_args = false;
+      show_all = true;
+      print_command = true;
+      layer = "overlay";
+      allow_images = true;
+      sort_order = "alphabetical";
+      gtk_dark = true;
+      prompt = "";
+      image_size = 20;
+      display_generic = false;
+      location = "center";
+      key_expand = "Tab";
+      insensitive = false;
+    };
+
+    style = ''
+      * {
+        font-family: JetBrainsMono;
+        color: #e5e9f0;
+        background: transparent;
+      }
+
+      #window {
+        background: rgba(41, 46, 66, 0.5);
+        margin: auto;
+        padding: 10px;
+        border-radius: 20px;
+        border: 5px solid #b072d1;
+      }
+
+      #input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+      }
+
+      #outer-box {
+        padding: 20px;
+      }
+
+      #img {
+        margin-right: 6px;
+      }
+
+      #entry {
+        padding: 10px;
+        border-radius: 15px;
+      }
+
+      #entry:selected {
+        background-color: #2e3440;
+      }
+
+      #text {
+        margin: 2px;
+      }
+    '';
+  };
+  */
+
   programs.waybar = {
     enable = true;
 
@@ -120,6 +219,13 @@
         margin: 10px;
       }
 
+      #cpu {
+        color: #7984a4;
+        background-color: #1e1e2e;
+        padding: 0px 10px;
+        margin: 10px;
+      }
+
       #clock.date {
         color: #7984a4;
         background-color: #1e1e2e;
@@ -161,14 +267,21 @@
         layer = "top";
         modules-left = ["hyprland/workspaces" "hyprland/mode"];
         modules-center = ["hyprland/window"];
-        modules-right = ["memory" "clock"];
+        modules-right = ["cpu" "memory" "clock"];
+
+        cpu = {
+          interval = 5;
+          format = "{usage}% ";
+        };
 
         memory = {
-          format = "{used}/{total}󰍛";
+          interval = 5;
+          format = "{used}G/{total}G ";
         };
 
         clock = {
-          format-alt = "{:%a, %d. %b  %H:%M}";
+          format = "{:%H:%M} ";
+          format-alt = "{:%a, %d. %b  %H:%M} ";
         };
       };
     };
@@ -198,7 +311,7 @@
 
       bind = lib.concatLists [
         [
-          "SUPER,Space,exec,wofi --show run"
+          "SUPER,Space,exec,fuzzel"
           "$MOD,Return,exec,alacritty"
           "$MOD,q,killactive"
           "$MOD,f,fullscreen,0"
