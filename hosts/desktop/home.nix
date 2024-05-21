@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../modules/git
     ../../modules/vscode
@@ -19,7 +21,8 @@
     cascadia-code
     spotify
     docker
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    webcord
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

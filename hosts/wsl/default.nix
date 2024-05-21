@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ../.
     ../../modules/git
@@ -21,4 +19,3 @@
     lsd
   ];
 }
- 

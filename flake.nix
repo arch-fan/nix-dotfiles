@@ -11,18 +11,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    let
-      mkSystem = name: system: nixpkgs.lib.nixosSystem {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    mkSystem = name: system:
+      nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = inputs // { inherit system; };
+        specialArgs = inputs // {inherit system;};
         modules = [
           ./hosts/${name}/configuration.nix
         ];
       };
-    in {
-      nixosConfigurations = {
-        desktop = mkSystem "desktop" "x86_64-linux";
-      };
+  in {
+    nixosConfigurations = {
+      desktop = mkSystem "desktop" "x86_64-linux";
+    };
   };
 }

@@ -1,18 +1,17 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
 
-    extensions = [
-      pkgs.vscode-extensions.bbenoist.nix
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+      kamadorueda.alejandra
     ];
 
     userSettings = {
-        editor.fontFamily = "'Cascadia Code', 'JetBrainsMono', 'monospace', monospac";
-        editor.fontLigatures = true;
-        editor.formatOnSave = true;
-        git.confirmSync = false;
+      editor.fontFamily = "'Cascadia Code', 'JetBrainsMono', 'monospace', monospac";
+      editor.fontLigatures = true;
+      editor.formatOnSave = true;
+      git.confirmSync = false;
     };
   };
 }
