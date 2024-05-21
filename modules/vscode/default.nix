@@ -9,7 +9,7 @@
 
     userSettings = {
       editor = {
-        fontFamily = "'Cascadia Code', 'JetBrainsMono', 'monospace', monospac";
+        fontFamily = "'Cascadia Code', 'JetBrains Mono', 'monospace', monospac";
         fontLigatures = true;
         formatOnSave = true;
       };
