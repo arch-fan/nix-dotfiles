@@ -17,5 +17,6 @@
     neovim
     bun
     lsd
+    htop
   ];
 }
