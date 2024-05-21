@@ -21,6 +21,7 @@
     cascadia-code
     spotify
     docker
+    neovim
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     # # You can also create simple shell scripts directly inside your
