@@ -10,7 +10,6 @@
 }: let
   pkgs = import nixpkgs {
     inherit system;
-    config.allowUnfree = true;
   };
 in {
   imports = [
@@ -35,6 +34,7 @@ in {
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true;
 
   home-manager.users.juan = import ./home.nix;
 
