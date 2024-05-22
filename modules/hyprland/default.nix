@@ -271,7 +271,7 @@
         "WLR_NO_HARDWARE_CURSORS,1"
       ];
 
-      monitor = ",preferred,auto,auto";
+      monitor = "DP-1,1920x1080@144,auto,auto";
 
       exec-once = [
         "waybar &"

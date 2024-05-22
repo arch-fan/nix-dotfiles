@@ -16,11 +16,10 @@
   home.homeDirectory = "/home/juan";
 
   home.packages = with pkgs; [
-    discord
+    webcord
     vscode
     cascadia-code
     spotify
-    docker
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     # # You can also create simple shell scripts directly inside your
