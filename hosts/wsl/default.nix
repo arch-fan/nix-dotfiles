@@ -12,7 +12,8 @@
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    rustup
+    rustc
+    cargo
     nodejs_22
     nodePackages_latest.pnpm
     bun
