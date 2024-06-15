@@ -12,13 +12,9 @@
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
+    rustup
     nodejs_22
-    nodePackages.pnpm
-    neovim
+    nodePackages_latest.pnpm
     bun
-    lsd
-    htop
   ];
-
-  system.stateVersion = "23.11";
 }

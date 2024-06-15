@@ -11,7 +11,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  let
     mkSystem = name: system:
       nixpkgs.lib.nixosSystem {
         inherit system;
@@ -27,9 +28,11 @@
 
     homeConfigurations = {
       wsl = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
         modules = [
-          ./home/wsl
+          ./hosts/wsl/default.nix
         ];
       };
     };
