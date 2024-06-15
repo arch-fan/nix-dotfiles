@@ -11,15 +11,11 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
     mkSystem = name: system:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = inputs // {inherit system;};
+        specialArgs = inputs // { inherit system; };
         modules = [
           ./hosts/${name}/configuration.nix
         ];
@@ -27,6 +23,15 @@
   in {
     nixosConfigurations = {
       desktop = mkSystem "desktop" "x86_64-linux";
+    };
+
+    homeConfigurations = {
+      wsl = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./home/wsl
+        ];
+      };
     };
   };
 }

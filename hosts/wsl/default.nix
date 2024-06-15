@@ -19,4 +19,6 @@
     lsd
     htop
   ];
+
+  system.stateVersion = "23.11";
 }
