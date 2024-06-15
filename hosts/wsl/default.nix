@@ -17,5 +17,6 @@
     nodejs_22
     nodePackages_latest.pnpm
     bun
+    alejandra
   ];
 }
