@@ -18,5 +18,6 @@
     nodePackages_latest.pnpm
     bun
     alejandra
+    cloudflared
   ];
 }
