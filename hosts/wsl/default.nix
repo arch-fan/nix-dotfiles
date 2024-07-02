@@ -19,5 +19,6 @@
     bun
     alejandra
     cloudflared
+    sqlite
   ];
 }
