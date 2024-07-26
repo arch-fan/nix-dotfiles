@@ -19,6 +19,8 @@
     bun
     alejandra
     cloudflared
+    php83
+    php83Packages.composer
     sqlite
   ];
 }
