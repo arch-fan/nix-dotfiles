@@ -21,20 +21,23 @@
           ./hosts/${name}/configuration.nix
         ];
       };
+
+    mkHome = name: system:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+        modules = [
+          ./hosts/${name}/default.nix
+        ];
+      };
   in {
     nixosConfigurations = {
       desktop = mkSystem "desktop" "x86_64-linux";
     };
 
     homeConfigurations = {
-      wsl = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-        };
-        modules = [
-          ./hosts/wsl/default.nix
-        ];
-      };
+      wsl = mkHome "wsl" "x86_64-linux";
     };
   };
 }
