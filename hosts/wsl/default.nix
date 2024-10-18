@@ -10,6 +10,7 @@
   };
 
   programs.bat.enable = true;
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     rustc
