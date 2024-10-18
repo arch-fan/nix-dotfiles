@@ -16,6 +16,7 @@
     cargo
     nodejs_22
     nodePackages_latest.pnpm
+    nodePackages_latest.vercel
     bun
     alejandra
     cloudflared
