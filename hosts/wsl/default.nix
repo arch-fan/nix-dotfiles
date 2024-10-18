@@ -15,7 +15,7 @@
     rustc
     cargo
     nodejs_22
-    nodePackages_latest.pnpm
+    pnpm
     nodePackages_latest.vercel
     bun
     alejandra
