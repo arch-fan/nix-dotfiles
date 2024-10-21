@@ -34,6 +34,7 @@
   in {
     nixosConfigurations = {
       desktop = mkSystem "desktop" "x86_64-linux";
+      dam = mkSystem "dam" "x86_64-linux";
     };
 
     homeConfigurations = {
