@@ -6,5 +6,6 @@
     lsd
     htop
     neovim
+    alejandra
   ];
 }
