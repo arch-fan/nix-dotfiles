@@ -7,7 +7,6 @@
     ../../modules/git
     ../../modules/vscode
     ../../modules/firefox
-    ../../modules/hyprland
     ../.
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -17,13 +16,15 @@
 
   home.packages = with pkgs; [
     cascadia-code
+    openssh
+    ntfs3g
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     (pkgs.writeShellScriptBin "rebuild" ''
-      sudo nixos-rebuild switch --flake ~/nix-dotfiles#desktop
+      sudo nixos-rebuild switch --flake ~/nix-dotfiles#dam
     '')
   ];
 
