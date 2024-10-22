@@ -17,7 +17,6 @@
   home.packages = with pkgs; [
     cascadia-code
     openssh
-    ntfs3g
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     # # You can also create simple shell scripts directly inside your
