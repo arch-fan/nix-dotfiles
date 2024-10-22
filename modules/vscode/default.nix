@@ -17,6 +17,7 @@
       git = {
         confirmSync = false;
         enableSmartCommit = true;
+        autofetch = true;
       };
     };
   };
