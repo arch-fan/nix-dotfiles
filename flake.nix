@@ -11,12 +11,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
     mkSystem = name: system:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = inputs // { inherit system; };
+        specialArgs = inputs // {inherit system;};
         modules = [
           ./hosts/${name}/configuration.nix
         ];
