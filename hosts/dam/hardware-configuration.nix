@@ -28,6 +28,12 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/dam-data" = {
+    device = "/dev/disk/by-uuid/E98547F4B05F4736";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-uuid/6be944cd-6411-459d-9196-eb37adbbd991";}
   ];
