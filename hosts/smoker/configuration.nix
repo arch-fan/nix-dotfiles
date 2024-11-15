@@ -87,13 +87,15 @@
   users.users.juan = {
     isNormalUser = true;
     description = "smoker";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       #  thunderbird
     ];
   };
 
   home-manager.users.juan = import ./home.nix;
+
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
