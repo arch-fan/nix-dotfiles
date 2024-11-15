@@ -4,31 +4,28 @@
   ...
 }: {
   imports = [
+    ../../modules/fonts
+    ../../modules/jetbrains
     ../../modules/git
     ../../modules/vscode
     ../../modules/firefox
     ../.
   ];
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+
   home.username = "juan";
   home.homeDirectory = "/home/juan";
 
   home.packages = with pkgs; [
-    cascadia-code
     openssh
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    obsidian
+    spotify
+    whatsapp-for-linux
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
     (pkgs.writeShellScriptBin "rebuild" ''
       sudo nixos-rebuild switch --flake ~/nix-dotfiles#smoker
     '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -42,26 +39,9 @@
     # '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/juan/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "code";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

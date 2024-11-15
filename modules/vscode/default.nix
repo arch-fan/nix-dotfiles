@@ -5,6 +5,7 @@
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       kamadorueda.alejandra
+      tal7aouy.icons
     ];
 
     userSettings = {
@@ -19,6 +20,8 @@
         enableSmartCommit = true;
         autofetch = true;
       };
+
+      workbench.iconTheme = "icons";
     };
   };
 }
