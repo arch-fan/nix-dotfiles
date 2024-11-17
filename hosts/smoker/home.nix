@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../../modules/fonts
+    ../../modules/kitty
     ../../modules/jetbrains
     ../../modules/git
     ../../modules/vscode
