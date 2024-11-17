@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.kitty = {
     enable = true;
-    themeFile = "Catpuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
   };
 }
