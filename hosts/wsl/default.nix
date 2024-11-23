@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     rustc
+    gcc
     cargo
     nodejs_22
     pnpm
