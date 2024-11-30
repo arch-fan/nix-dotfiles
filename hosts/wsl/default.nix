@@ -13,9 +13,9 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    rustc
+    rustup
+    imagemagick
     gcc
-    cargo
     nodejs_22
     pnpm
     nodePackages_latest.vercel
