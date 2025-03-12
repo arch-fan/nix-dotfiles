@@ -20,10 +20,16 @@
     pnpm
     nodePackages_latest.vercel
     bun
+
+    maven
+    temurin-bin
+
     alejandra
     cloudflared
     php83
     php83Packages.composer
     sqlite
+    uv
+    libgcc
   ];
 }
