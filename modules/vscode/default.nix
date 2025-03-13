@@ -24,9 +24,19 @@
       "workbench.iconTheme" = "icons";
 
       "nix.serverSettings" = {
-        "nil" = { "formatting" = { "command" = [ "nixfmt" ]; }; };
+        "nil" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ];
+            "nix" = {
+              "flake" = {
+                "autoArchive" = true;
+                "autoEvalInputs" = true;
+                "nixpkgsInputName" = "nixpkgs";
+              };
+            };
+          };
+        };
       };
-
     };
   };
 }

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ pkgs, lib, ... }: {
   programs.plasma = {
     workspace = {
       # Should install Nordic manually. Automatice it

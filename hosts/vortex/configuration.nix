@@ -1,20 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  home-manager,
-  plasma-manager,
-  ...
-}: {
+{ config, pkgs, home-manager, plasma-manager, ... }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     home-manager.nixosModules.default
   ];
 
-  home-manager.sharedModules = [plasma-manager.homeManagerModules.plasma-manager];
+  home-manager.sharedModules =
+    [ plasma-manager.homeManagerModules.plasma-manager ];
 
   virtualisation.docker.enable = true;
 
@@ -92,23 +87,25 @@
   users.users.vortex = {
     isNormalUser = true;
     description = "vortex";
-    extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   home-manager.users.vortex = import ./home.nix;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+    ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
