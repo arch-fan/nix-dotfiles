@@ -263,6 +263,7 @@
   wayland.windowManager.hyprland = {
     # xwayland.enable = true;
     enable = true;
+    package = pkgs.hyprland;
 
     settings = {
       "$MOD" = "SUPER";

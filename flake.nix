@@ -9,12 +9,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    plasma-manager,
     ...
   } @ inputs: let
     mkSystem = name: system:
@@ -40,6 +47,7 @@
       desktop = mkSystem "desktop" "x86_64-linux";
       dam = mkSystem "dam" "x86_64-linux";
       smoker = mkSystem "smoker" "x86_64-linux";
+      vortex = mkSystem "vortex" "x86_64-linux";
     };
 
     homeConfigurations = {

@@ -1,27 +1,32 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.vscode = {
     enable = true;
 
     extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      kamadorueda.alejandra
+      jnoortheen.nix-ide
       tal7aouy.icons
     ];
 
     userSettings = {
-      editor = {
-        fontFamily = "'Cascadia Code', 'JetBrains Mono', 'monospace', monospac";
-        fontLigatures = true;
-        formatOnSave = true;
+      "editor.fontFamily" =
+        "'Cascadia Code', 'JetBrains Mono', 'monospace', monospac";
+      "editor.fontLigatures" = true;
+      "editor.formatOnSave" = true;
+
+      "git.confirmSync" = false;
+      "git.enableSmartCommit" = true;
+      "git.autofetch" = true;
+
+      "nix.formatterPath" = "nixfmt";
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+
+      "workbench.iconTheme" = "icons";
+
+      "nix.serverSettings" = {
+        "nil" = { "formatting" = { "command" = [ "nixfmt" ]; }; };
       };
 
-      git = {
-        confirmSync = false;
-        enableSmartCommit = true;
-        autofetch = true;
-      };
-
-      workbench.iconTheme = "icons";
     };
   };
 }
