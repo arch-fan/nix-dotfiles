@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   php = pkgs.php82.withExtensions
     ({ enabled, all, }: with all; enabled ++ [ imagick xsl ]);
@@ -26,6 +26,7 @@ in {
     btop
     skypeforlinux
     nixfmt-classic
+    thunderbird
 
     nodejs
     nodePackages.pnpm
@@ -88,7 +89,6 @@ in {
   programs.lsd.enable = true;
   programs.go.enable = true;
   programs.ghostty.enable = true;
-  programs.thunderbird.enable = true;
 
   programs.starship = {
     enable = true;
