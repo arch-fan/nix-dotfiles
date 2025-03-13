@@ -17,7 +17,6 @@ in {
 
   home.packages = with pkgs; [
     discord
-    cascadia-code
     spotify
     jetbrains.phpstorm
     php
@@ -27,6 +26,7 @@ in {
     skypeforlinux
     nixfmt-classic
     thunderbird
+    lazydocker
 
     nodejs
     nodePackages.pnpm
@@ -89,6 +89,7 @@ in {
   programs.lsd.enable = true;
   programs.go.enable = true;
   programs.ghostty.enable = true;
+  programs.lazygit.enable = true;
 
   programs.starship = {
     enable = true;

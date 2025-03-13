@@ -1,15 +1,19 @@
 { pkgs, ... }: {
+
+  home.packages = with pkgs; [ cascadia-code ];
+
   programs.vscode = {
     enable = true;
 
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       tal7aouy.icons
+      ms-azuretools.vscode-docker
     ];
 
     userSettings = {
       "editor.fontFamily" =
-        "'Cascadia Code', 'JetBrains Mono', 'monospace', monospac";
+        "'Cascadia Code NF', 'JetBrains Mono', 'monospace', monospac";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
 
