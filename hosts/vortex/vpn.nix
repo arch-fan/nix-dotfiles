@@ -14,9 +14,9 @@ in {
         client
         resolv-retry infinite
         remote vpnvortex.ddns.net 1194 udp4
-        auth-user-pass
+        auth-user-pass ${dir}/credentials
         ca ${dir}/ca.crt
-        tls-auth ${dir}tls.key 1
+        tls-auth ${dir}/tls.key 1
         remote-cert-tls server
         explicit-exit-notify
       '';
