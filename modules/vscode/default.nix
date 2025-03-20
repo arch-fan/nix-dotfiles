@@ -23,7 +23,7 @@
 
       "nix.formatterPath" = "nixfmt";
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nil";
+      "nix.serverPath" = "nixd";
 
       "workbench.iconTheme" = "icons";
 
@@ -37,6 +37,15 @@
                 "autoEvalInputs" = true;
                 "nixpkgsInputName" = "nixpkgs";
               };
+            };
+          };
+        };
+        "nixd" = {
+          "formatting" = { "command" = [ "nixfmt" ]; };
+          "options" = {
+            "nixos" = {
+              "expr" = ''
+                (builtins.getFlake "/home/vortex/nix-dotfiles").nixosConfigurations.vortex.options'';
             };
           };
         };

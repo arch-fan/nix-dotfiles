@@ -5,6 +5,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ./vpn.nix
+
     home-manager.nixosModules.default
   ];
 
@@ -92,14 +95,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home-manager.users.vortex = import ./home.nix;
-
-  services.openvpn.servers = {
-    vortex = {
-      config = ''
-        config /root/nixos/openvpn/VortexVpn-UDP4-1194-config.ovpn
-      '';
-    };
-  };
 
   # List services that you want to enable:
 
