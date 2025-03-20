@@ -27,7 +27,6 @@ in {
     nixfmt-classic
     thunderbird
     lazydocker
-    openvpn3
 
     nodejs
     nodePackages.pnpm

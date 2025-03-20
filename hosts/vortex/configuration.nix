@@ -93,6 +93,14 @@
 
   home-manager.users.vortex = import ./home.nix;
 
+  services.openvpn.servers = {
+    vortex = {
+      config = ''
+        config /root/nixos/openvpn/VortexVpn-UDP4-1194-config.ovpn
+      '';
+    };
+  };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
