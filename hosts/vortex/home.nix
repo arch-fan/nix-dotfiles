@@ -88,8 +88,27 @@ in {
   programs.bash.enable = true;
   programs.lsd.enable = true;
   programs.go.enable = true;
-  programs.ghostty.enable = true;
   programs.lazygit.enable = true;
+
+  programs.ghostty = {
+    enable = true;
+    config = {
+      theme = "catppuccin-mocha";
+
+      font-family = "CaskaydiaCove Nerd Font";
+      font-size = 18;
+
+      # background-opacity = 0.95
+
+      cursor-style = "bar";
+
+      window-padding-x = 4;
+      window-padding-y = 4;
+
+      window-height = 30;
+      window-width = 102;
+    };
+  };
 
   programs.starship = {
     enable = true;
