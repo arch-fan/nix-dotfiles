@@ -92,7 +92,7 @@ in {
 
   programs.ghostty = {
     enable = true;
-    config = {
+    settings = {
       theme = "catppuccin-mocha";
 
       font-family = "CaskaydiaCove Nerd Font";
