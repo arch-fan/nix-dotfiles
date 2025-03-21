@@ -42,11 +42,14 @@
         };
         "nixd" = {
           "formatting" = { "command" = [ "nixfmt" ]; };
+          "nixpkgs" = {
+            "expr" = ''
+              import (builtins.getFlake "/home/vortex/nix-dotfiles").inputs.nixpkgs {
+                config = { allowUnfree = true; };
+              }
+            '';
+          };
           "options" = {
-            "nixpkgs" = {
-              "expr" = ''
-                import (builtins.getFlake "/home/vortex/nix-dotfiles").inputs.nixpkgs {}'';
-            };
             "nixos" = {
               "expr" = ''
                 (builtins.getFlake "/home/vortex/nix-dotfiles").nixosConfigurations.vortex.options'';
