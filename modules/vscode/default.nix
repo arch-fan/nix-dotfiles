@@ -43,6 +43,10 @@
         "nixd" = {
           "formatting" = { "command" = [ "nixfmt" ]; };
           "options" = {
+            "nixpkgs" = {
+              "expr" = ''
+                import (builtins.getFlake "/home/vortex/nix-dotfiles").inputs.nixpkgs {}'';
+            };
             "nixos" = {
               "expr" = ''
                 (builtins.getFlake "/home/vortex/nix-dotfiles").nixosConfigurations.vortex.options'';
