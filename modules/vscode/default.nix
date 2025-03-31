@@ -7,8 +7,9 @@
 
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
-      tal7aouy.icons
+      file-icons.file-icons
       ms-azuretools.vscode-docker
+      gitlab.gitlab-workflow
     ];
 
     userSettings = {
