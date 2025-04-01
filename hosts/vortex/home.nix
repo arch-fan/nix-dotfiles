@@ -27,6 +27,7 @@ in {
     nixfmt-classic
     thunderbird
     lazydocker
+    shellcheck
 
     nodejs
     nodePackages.pnpm
