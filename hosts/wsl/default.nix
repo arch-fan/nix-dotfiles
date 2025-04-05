@@ -2,6 +2,7 @@
   imports = [
     ../.
     ../../modules/git
+    ../../modules/starship
   ];
 
   home = {

@@ -8,6 +8,7 @@ in {
     ../../modules/vscode
     ../../modules/firefox
     ../../modules/plasma
+    ../../modules/starship
     ../.
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -108,25 +109,6 @@ in {
 
       window-height = 30;
       window-width = 102;
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      format = ''
-        [┌─>](bold green) [at](bold blue) $directory$all\\
-        [└>](bold green) $username $battery$character'';
-
-      character = {
-        success_symbol = "[\\$](bold green)";
-        error_symbol = "[\\$](bold red)";
-      };
-
-      username = {
-        show_always = true;
-        format = "[$user]($style)";
-      };
     };
   };
 
