@@ -20,6 +20,9 @@
     pnpm
     nodePackages_latest.vercel
     bun
+    openssl_3
+    go
+    gnumake
 
     maven
     temurin-bin
