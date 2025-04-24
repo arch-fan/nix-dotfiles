@@ -29,6 +29,8 @@ in {
     thunderbird
     lazydocker
     shellcheck
+    libreoffice-qt6
+    subversion
 
     nodejs
     nodePackages.pnpm
@@ -56,6 +58,11 @@ in {
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/php/php.ini".text = ''
+      upload_max_filesize = 20M
+      post_max_size      = 20M
+    '';
   };
 
   home.sessionPath = [ "$HOME/.config/composer/vendor/bin/" ];
@@ -85,7 +92,10 @@ in {
   #
   #  /etc/profiles/per-user/juan/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "code"; };
+  home.sessionVariables = {
+    EDITOR = "code";
+    PHPRC = "$HOME/.config/php";
+  };
 
   programs.bash.enable = true;
   programs.lsd.enable = true;
