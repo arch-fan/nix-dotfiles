@@ -31,6 +31,7 @@ in {
     shellcheck
     libreoffice-qt6
     subversion
+    vivaldi
 
     nodejs
     nodePackages.pnpm
