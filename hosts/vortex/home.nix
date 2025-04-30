@@ -2,6 +2,10 @@
 let
   php = pkgs.php82.withExtensions
     ({ enabled, all, }: with all; enabled ++ [ imagick xsl ]);
+  vivaldi-qt6 = pkgs.vivaldi.overrideAttrs (old: {
+    dontWrapQtApps = false;
+    nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.qt5.wrapQtAppsHook ];
+  });
 in {
   imports = [
     ../../modules/git
@@ -31,7 +35,7 @@ in {
     shellcheck
     libreoffice-qt6
     subversion
-    vivaldi
+    vivaldi-qt6
 
     nodejs
     nodePackages.pnpm
@@ -71,9 +75,6 @@ in {
   home.shellAliases = {
     reload = "home-manager switch --flake ~/dotfiles#vortex";
     dc = "docker compose";
-    ls = "lsd";
-    l = "ls -la";
-    ll = "ls -l";
     tree = "ls --tree";
   };
 
