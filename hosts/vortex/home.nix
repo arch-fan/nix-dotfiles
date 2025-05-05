@@ -28,7 +28,6 @@ in {
     php.packages.composer
     laravel
     btop
-    skypeforlinux
     nixfmt-classic
     thunderbird
     lazydocker
