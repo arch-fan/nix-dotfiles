@@ -35,6 +35,7 @@ in {
     libreoffice-qt6
     subversion
     vivaldi-qt6
+    code-cursor
 
     nodejs
     nodePackages.pnpm
