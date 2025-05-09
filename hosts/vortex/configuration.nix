@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ home-manager, plasma-manager, ... }: {
+{ home-manager, plasma-manager, pkgs, ... }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -94,6 +94,11 @@
   nixpkgs.config.allowUnfree = true;
 
   home-manager.users.vortex = import ./home.nix;
+
+  services.xserver.videoDrivers = [ "intel" ];
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages = with pkgs; [ intel-media-sdk ];
 
   # List services that you want to enable:
 
