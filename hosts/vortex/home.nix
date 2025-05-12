@@ -32,6 +32,7 @@ in {
     subversion
     ungoogled-chromium
     code-cursor
+    hmcl
 
     nodejs
     nodePackages.pnpm
