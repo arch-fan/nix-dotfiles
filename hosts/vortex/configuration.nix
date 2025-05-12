@@ -95,10 +95,16 @@
 
   home-manager.users.vortex = import ./home.nix;
 
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  hardware.graphics.extraPackages = with pkgs; [ intel-media-sdk ];
+  hardware.graphics.extraPackages = with pkgs; [ vpl-gpu-rt ];
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux;
+    [ intel-vaapi-driver ];
+
+  environment.systemPackages = with pkgs; [ libva-utils intel-media-driver ];
+
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; MOZ_X11_EGL="1"; };
 
   # List services that you want to enable:
 

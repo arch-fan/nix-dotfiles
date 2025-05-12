@@ -2,10 +2,6 @@
 let
   php = pkgs.php82.withExtensions
     ({ enabled, all, }: with all; enabled ++ [ imagick xsl ]);
-  vivaldi-qt6 = pkgs.vivaldi.overrideAttrs (old: {
-    dontWrapQtApps = false;
-    nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.qt5.wrapQtAppsHook ];
-  });
 in {
   imports = [
     ../../modules/git
@@ -21,8 +17,8 @@ in {
   home.homeDirectory = "/home/vortex";
 
   home.packages = with pkgs; [
-    discord
-    spotify
+    vesktop
+    spot
     jetbrains.phpstorm
     php
     php.packages.composer
@@ -34,7 +30,7 @@ in {
     shellcheck
     libreoffice-qt6
     subversion
-    vivaldi-qt6
+    ungoogled-chromium
     code-cursor
 
     nodejs
